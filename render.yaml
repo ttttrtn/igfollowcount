@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: instagram-follower-counter
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: INSTAGRAM_ACCESS_TOKEN
+        sync: false   # you paste this in the Render dashboard; never commit it
+      - key: INSTAGRAM_EXPECTED_USERNAME
+        sync: false   # optional safety check, e.g. yourhandle (no @)
